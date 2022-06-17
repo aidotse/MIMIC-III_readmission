@@ -30,6 +30,17 @@ metrics evaluation.
 - matplotlib - visualization
 - seaborn - visualization
 
+### docker setup
+   
+   ```docker build -t mimic-iii_readmission --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) -f Dockerfile .```
+
+
+   ```docker run -d --rm -it --volume $(pwd):/workspace --gpus all --add_host=database --name mimic-iii_readmission mimic-iii_readmission```
+
+
+   ```docker exec -it mimic-iii_readmission bash```
+
+
 ### Main results:
 Raw numerical data scatter matrix. A: Scatter matrix of all numerical features. B: zoomed-in view on the first 6 features. Each square shows the scatter plot corresponding to the two features defined by the row and column. The diagonal shows the kernel density estimation plots.
 ![features before preprocessing](figures/scatter_comb_pre.png)
