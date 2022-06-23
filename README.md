@@ -35,7 +35,7 @@ metrics evaluation.
    ```docker build -t mimic-iii_readmission --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) -f Dockerfile .```
 
 
-   ```docker run -d --rm -it --volume $(pwd):/workspace --gpus all --add_host=database --name mimic-iii_readmission mimic-iii_readmission```
+   ```docker run -d --rm -it --volume $(pwd):/workspace --gpus all --network="host" --name mimic-iii_readmission mimic-iii_readmission```
 
 
    ```docker exec -it mimic-iii_readmission bash```
