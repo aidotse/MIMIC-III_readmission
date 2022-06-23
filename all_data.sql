@@ -101,8 +101,6 @@ create materialized view all_data as
   , temp_min
   , temp_max
   , temp_mean
-  , sapsii
-  , sofa
   , urine_min
   , urine_mean
   , urine_max
@@ -118,11 +116,7 @@ create materialized view all_data as
     on la.hadm_id = ca.hadm_id
     inner join icustays ie
     on la.hadm_id = ie.hadm_id
-    inner join SAPSII
-    on la.hadm_id = SAPSII.hadm_id
-    inner join SOFA
-    on la.hadm_id = SOFA.hadm_id
   group by 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26
-  ,27,28,29,30,31,32,33,34,35,36,37,38,39,40, 41, 42, 43
+  ,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41
   order by 1,3
   ;
