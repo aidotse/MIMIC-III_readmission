@@ -30,8 +30,23 @@ metrics evaluation.
 - matplotlib - visualization
 - seaborn - visualization
 
-### docker setup
-   
+### Setup
+
+1. Get access to the MIMIC database here: https://mimic.mit.edu/docs/gettingstarted/. Download the files for mimic-iii and place them on the server.
+
+2. Check if postgresql is installed by running ```psql --version```. These instuctions where tested using version 12.11, but it is possible that other versions would work as well. If it's not installed, install by following the instructions here: https://www.postgresql.org/download/linux/ubuntu/.
+
+3. Follow the instructions here to set up a postgresql database with the mimic data: https://github.com/MIT-LCP/mimic-code/tree/main/mimic-iii/buildmimic/postgres
+
+4. Run the file all_data.sql by running
+
+   ```\i /path_to_file```
+
+5. Rename this repository to lower case letter. Build and run the docker container:
+
+   ```cd mimic-iii_readmission```
+
+
    ```docker build -t mimic-iii_readmission --build-arg USER_ID=$(id -u) --build-arg GROUP_ID=$(id -g) -f Dockerfile .```
 
 
@@ -39,6 +54,8 @@ metrics evaluation.
 
 
    ```docker exec -it mimic-iii_readmission bash```
+
+6. Run scripts 1-4.
 
 
 ### Main results:
